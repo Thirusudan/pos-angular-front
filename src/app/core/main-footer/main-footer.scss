@@ -1,0 +1,293 @@
+.footer {
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
+
+  // ── Wave ──────────────────────────────────────
+  &__wave {
+    display: block;
+    line-height: 0;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 80px;
+    }
+  }
+
+  // ── Main body ─────────────────────────────────
+  &__main {
+    background-color: var(--primary-color);
+    padding: 60px 0 48px;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1.8fr 1fr 1fr 1.6fr;
+    gap: 48px;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+
+  // ── Brand ─────────────────────────────────────
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__logo-icon {
+    font-size: 28px;
+    filter: drop-shadow(0 0 8px var(--green-color));
+  }
+
+  &__logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--light-color);
+    letter-spacing: 1px;
+  }
+
+  &__tagline {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    max-width: 240px;
+    margin: 0;
+  }
+
+  // ── Socials ───────────────────────────────────
+  &__socials {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__social-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 0 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: var(--green-color);
+      border-color: var(--green-color);
+      color: var(--light-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(22, 160, 133, 0.35);
+    }
+  }
+
+  // ── Contact ───────────────────────────────────
+  &__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.5;
+  }
+
+  &__contact-icon {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  // ── Link columns ──────────────────────────────
+  &__links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  &__col-title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--green-color);
+    margin: 0 0 4px;
+  }
+
+  &__links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__link {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+
+    &:hover {
+      color: var(--light-color);
+      padding-left: 5px;
+    }
+  }
+
+  // ── Newsletter ────────────────────────────────
+  &__newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__newsletter-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__newsletter-form {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: border-color 0.25s ease;
+
+    &--focused {
+      border-color: var(--green-color);
+    }
+  }
+
+  &__input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.07);
+    border: none;
+    outline: none;
+    padding: 11px 14px;
+    font-size: 0.85rem;
+    color: var(--light-color);
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &--success {
+      color: var(--green-color);
+    }
+  }
+
+  &__subscribe-btn {
+    background-color: var(--green-color);
+    border: none;
+    color: var(--light-color);
+    padding: 11px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover:not(:disabled) {
+      background-color: var(--blue-color);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+  }
+
+  &__success-msg {
+    font-size: 0.8rem;
+    color: var(--green-color);
+    margin: 0;
+    animation: footerFadeIn 0.35s ease;
+  }
+
+  // ── Bottom bar ────────────────────────────────
+  &__bottom {
+    background-color: var(--primary-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 0;
+  }
+
+  &__bottom-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media (max-width: 576px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__copy {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    margin: 0;
+  }
+
+  &__bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__bottom-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--green-color);
+    }
+  }
+
+  &__dot {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.75rem;
+  }
+}
+
+@keyframes footerFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

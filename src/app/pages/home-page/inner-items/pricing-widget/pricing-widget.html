@@ -1,0 +1,107 @@
+<section class="pricing" id="pricing">
+
+  <!-- ── Header ──────────────────────────────────── -->
+  <div class="pricing__header">
+    <div class="pricing__tag">Simple Pricing</div>
+
+    <h2 class="pricing__title">
+      Choose the Plan That <br />
+      <span class="pricing__title--accent">Fits Your Business</span>
+    </h2>
+
+    <p class="pricing__subtitle">
+      No hidden fees. Cancel anytime. Scale up as you grow.
+    </p>
+
+    <!-- Billing toggle -->
+    <div class="pricing__toggle">
+      <span [class.pricing__toggle-label--active]="!isAnnual">Monthly</span>
+
+      <button
+        class="pricing__toggle-btn"
+        [class.pricing__toggle-btn--on]="isAnnual"
+        (click)="toggleBilling()"
+        aria-label="Toggle billing period"
+      >
+        <span class="pricing__toggle-knob"></span>
+      </button>
+
+      <span [class.pricing__toggle-label--active]="isAnnual">
+        Annual
+        <span class="pricing__save-badge">Save 20%</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ── Cards ───────────────────────────────────── -->
+  <div class="pricing__cards">
+    @for (plan of plans; track plan.name) {
+      <div
+        class="pricing__card"
+        [class.pricing__card--featured]="plan.featured"
+      >
+        <div class="pricing__card-inner">
+
+          <!-- Plan header -->
+          <div class="pricing__plan-header">
+            <span class="pricing__plan-icon">{{ plan.icon }}</span>
+            <div class="pricing__plan-meta">
+              <div class="pricing__plan-name">{{ plan.name }}</div>
+              <div class="pricing__plan-desc">{{ plan.description }}</div>
+            </div>
+            @if (plan.featured) {
+              <span class="pricing__popular-badge">Most Popular</span>
+            }
+          </div>
+
+          <!-- Price display -->
+          <div class="pricing__price">
+            <span class="pricing__currency">$</span>
+            <span class="pricing__amount">
+              {{ isAnnual ? plan.annualPrice : plan.monthlyPrice }}
+            </span>
+            <span class="pricing__period">/mo</span>
+          </div>
+
+          @if (isAnnual) {
+            <div class="pricing__billed-note">
+              Billed ${{ plan.annualPrice * 12 }} annually
+            </div>
+          }
+
+          <!-- Features list -->
+          <ul class="pricing__features">
+            @for (feature of plan.features; track feature.text) {
+              <li
+                class="pricing__feature"
+                [class.pricing__feature--disabled]="!feature.included"
+              >
+                <span class="pricing__feature-check">
+                  {{ feature.included ? '✓' : '✕' }}
+                </span>
+                {{ feature.text }}
+              </li>
+            }
+          </ul>
+
+          <!-- CTA button -->
+          <button
+            class="pricing__btn"
+            [class.pricing__btn--featured]="plan.featured"
+            (click)="onSelectPlan(plan)"
+          >
+            {{ plan.cta }}
+          </button>
+
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- ── Footer note ─────────────────────────────── -->
+  <div class="pricing__footer">
+    <span>🛡️</span>
+    All plans include a 14-day free trial. No credit card required.
+  </div>
+
+</section>

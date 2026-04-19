@@ -1,0 +1,44 @@
+<section class="not-found">
+  <div class="not-found__bg-grid"></div>
+
+  <div class="not-found__glow not-found__glow--1"></div>
+  <div class="not-found__glow not-found__glow--2"></div>
+
+  <div class="not-found__container">
+
+    <!-- Big 404 -->
+    <div class="not-found__code">
+      <span class="not-found__digit">4</span>
+      <span class="not-found__digit not-found__digit--icon">🧾</span>
+      <span class="not-found__digit">4</span>
+    </div>
+
+    <h1 class="not-found__title">Page Not Found</h1>
+
+    <p class="not-found__subtitle">
+      Looks like this page went out of stock. <br />
+      The URL you entered doesn't exist in our system.
+    </p>
+
+    <!-- Quick links -->
+    <div class="not-found__links">
+      <button class="not-found__btn not-found__btn--primary" (click)="goHome()">
+        ← Back to Home
+      </button>
+      <button class="not-found__btn not-found__btn--ghost" (click)="goDashboard()">
+        Go to Dashboard
+      </button>
+    </div>
+
+    <!-- Help strip -->
+    <div class="not-found__help">
+      @for (item of helpItems; track item.label) {
+        <div class="not-found__help-card" (click)="onHelpClick(item.route)">
+          <span class="not-found__help-icon">{{ item.icon }}</span>
+          <span class="not-found__help-label">{{ item.label }}</span>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

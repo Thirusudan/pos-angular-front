@@ -1,0 +1,88 @@
+<section class="hero">
+  <div class="hero__bg-grid"></div>
+
+  <div class="hero__content">
+
+    <!-- ── Left ─────────────────────────────────── -->
+    <div class="hero__left">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        Trusted by 500+ businesses
+      </div>
+
+      <h1 class="hero__title">
+        The Smartest POS <br />
+        <span class="hero__title--accent">Built for Growth</span>
+      </h1>
+
+      <p class="hero__subtitle">
+        Streamline sales, track inventory in real-time, and delight your
+        customers — all from one powerful, intuitive platform.
+      </p>
+
+      <div class="hero__actions">
+        <button class="btn btn--primary" (click)="onGetStarted()">
+          Get Started Free
+          <span class="btn__arrow">→</span>
+        </button>
+        <button class="btn btn--ghost" (click)="onWatchDemo()">
+          <span class="btn__play">▶</span>
+          Watch Demo
+        </button>
+      </div>
+
+      <!-- Stats — @for replaces *ngFor, no CommonModule needed -->
+      <div class="hero__stats">
+        @for (stat of stats; track stat.label) {
+          <div class="hero__stat">
+            <span class="hero__stat-value">{{ stat.value }}</span>
+            <span class="hero__stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <!-- ── Right ─────────────────────────────────── -->
+    <div class="hero__right">
+
+      <!-- Main sales card -->
+      <div class="hero__card hero__card--main">
+        <div class="hero__card-header">
+          <span class="hero__card-dot hero__card-dot--red"></span>
+          <span class="hero__card-dot hero__card-dot--yellow"></span>
+          <span class="hero__card-dot hero__card-dot--green"></span>
+          <span class="hero__card-title">Today's Sales</span>
+        </div>
+        <div class="hero__card-amount">$12,840</div>
+        <div class="hero__card-change">
+          <span class="hero__card-up">↑ 18.4%</span> vs yesterday
+        </div>
+
+        <!-- Bar chart — @for replaces *ngFor -->
+        <div class="hero__chart">
+          @for (bar of chartBars; track $index) {
+            <div class="hero__bar" [style.height.%]="bar"></div>
+          }
+        </div>
+      </div>
+
+      <!-- Mini left card -->
+      <div class="hero__card hero__card--mini hero__card--mini-left">
+        <div>
+          <div class="hero__mini-value">$3,210</div>
+          <div class="hero__mini-label">This Hour</div>
+        </div>
+      </div>
+
+      <!-- Mini right card -->
+      <div class="hero__card hero__card--mini hero__card--mini-right">
+        <span class="hero__mini-icon">🧾</span>
+        <div>
+          <div class="hero__mini-value">1,204</div>
+          <div class="hero__mini-label">Items Sold</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

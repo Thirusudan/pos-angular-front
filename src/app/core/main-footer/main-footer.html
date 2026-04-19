@@ -1,0 +1,104 @@
+<footer class="footer">
+
+  <!-- Wave Divider -->
+  <div class="footer__wave">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="var(--primary-color)" />
+    </svg>
+  </div>
+
+  <div class="footer__main">
+    <div class="footer__container">
+
+      <!-- ── Brand Column ───────────────────────── -->
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <span class="footer__logo-icon">⚡</span>
+          <span class="footer__logo-text">SwiftPOS</span>
+        </div>
+        <p class="footer__tagline">
+          Powering modern businesses with lightning-fast point-of-sale solutions.
+        </p>
+
+        <div class="footer__socials">
+          @for (social of socials; track social.label) {
+            <a [href]="social.href" class="footer__social-btn" [attr.aria-label]="social.label">
+              {{ social.icon }}
+            </a>
+          }
+        </div>
+
+        <div class="footer__contact-info">
+          @for (item of contactItems; track item.label) {
+            <div class="footer__contact-item">
+              <span class="footer__contact-icon">{{ item.icon }}</span>
+              <span>{{ item.label }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- ── Link Columns (Product + Company) ──── -->
+      @for (col of columns; track col.heading) {
+        <div class="footer__links-col">
+          <h4 class="footer__col-title">{{ col.heading }}</h4>
+          <ul class="footer__links">
+            @for (link of col.links; track link.label) {
+              <li>
+                <a [href]="link.href" class="footer__link">{{ link.label }}</a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
+
+      <!-- ── Newsletter ─────────────────────────── -->
+      <div class="footer__newsletter">
+        <h4 class="footer__col-title">Stay Updated</h4>
+        <p class="footer__newsletter-text">
+          Get the latest POS tips and product updates delivered to your inbox.
+        </p>
+
+        <div class="footer__newsletter-form"
+             [class.footer__newsletter-form--focused]="inputFocused">
+          <input
+            type="email"
+            placeholder="you@company.com"
+            [(ngModel)]="email"
+            class="footer__input"
+            [class.footer__input--success]="subscribed"
+            (focus)="inputFocused = true"
+            (blur)="inputFocused = false"
+          />
+          <button
+            class="footer__subscribe-btn"
+            (click)="subscribe()"
+            [disabled]="subscribed">
+            {{ subscribed ? '✓' : '→' }}
+          </button>
+        </div>
+
+        @if (subscribed) {
+          <p class="footer__success-msg">You're in! Welcome aboard 🎉</p>
+        }
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── Bottom Bar ─────────────────────────────── -->
+  <div class="footer__bottom">
+    <div class="footer__bottom-inner">
+      <p class="footer__copy">© {{ currentYear }} SwiftPOS. All rights reserved.</p>
+      <div class="footer__bottom-links">
+        @for (link of bottomLinks; track link.label; let last = $last) {
+          <a [href]="link.href" class="footer__bottom-link">{{ link.label }}</a>
+          @if (!last) {
+            <span class="footer__dot">·</span>
+          }
+        }
+      </div>
+    </div>
+  </div>
+
+</footer>

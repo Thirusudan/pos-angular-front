@@ -1,0 +1,298 @@
+/* =====================================================
+   about-us-widget.scss
+   ===================================================== */
+
+.about {
+  background-color: #f4f6f8;
+  padding: 6rem 5vw;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+
+  &__container {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    gap: 5rem;
+    align-items: flex-start;
+  }
+
+  /* ── Left Content ───────────────────────────── */
+  &__left {
+    flex: 1.1;
+  }
+
+  &__tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green-color);
+    background: rgba(22, 160, 133, 0.1);
+    border-radius: 6px;
+    padding: 4px 12px;
+    margin-bottom: 1.2rem;
+  }
+
+  &__title {
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin-bottom: 1.4rem;
+
+    &--accent { color: var(--green-color); }
+  }
+
+  &__lead {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  &__body {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  /* ── Value cards ────────────────────────────── */
+  &__values {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  &__value-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light-color);
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.2s;
+
+    &:hover { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09); }
+  }
+
+  &__value-icon { font-size: 1.1rem; }
+
+  /* ── Milestones timeline ────────────────────── */
+  &__milestones {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8px;
+    margin-bottom: 2.5rem;
+  }
+
+  &__milestone {
+    display: flex;
+    gap: 16px;
+
+    &:not(:last-child) .about__milestone-body {
+      padding-bottom: 1.4rem;
+    }
+  }
+
+  &__milestone-line {
+    width: 2px;
+    background: linear-gradient(to bottom, var(--green-color), var(--blue-color));
+    border-radius: 2px;
+    flex-shrink: 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green-color);
+      border: 2px solid #f4f6f8;
+    }
+  }
+
+  &__milestone-body {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2px;
+  }
+
+  &__milestone-year {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--blue-color);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__milestone-event {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+  }
+
+  /* ── CTA button ─────────────────────────────── */
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: none;
+    border-radius: 10px;
+    padding: 0.85rem 1.8rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+
+    &:hover {
+      background-color: #3d566e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(44, 62, 80, 0.3);
+    }
+  }
+
+  &__cta-arrow { font-size: 1.1rem; }
+
+  /* ── Right Visual ───────────────────────────── */
+  &__right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: sticky;
+    top: 6rem;
+  }
+
+  &__img-wrap {
+    position: relative;
+  }
+
+  &__img-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3d566e 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+      border-radius: inherit;
+    }
+  }
+
+  &__img-icon { font-size: 5rem; position: relative; z-index: 1; }
+
+  &__experience-badge {
+    position: absolute;
+    bottom: -18px;
+    right: 24px;
+    background: var(--green-color);
+    color: var(--light-color);
+    border-radius: 14px;
+    padding: 12px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(22, 160, 133, 0.35);
+  }
+
+  &__exp-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  &__exp-label {
+    font-size: 0.68rem;
+    font-weight: 500;
+    opacity: 0.9;
+    text-align: center;
+  }
+
+  /* ── Team strip ─────────────────────────────── */
+  &__team-strip {
+    background: var(--light-color);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    margin-top: 24px;
+  }
+
+  &__team-avatars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--light-color);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+    cursor: default;
+    transition: transform 0.2s;
+
+    &:nth-child(2) { background-color: var(--green-color); }
+    &:nth-child(3) { background-color: var(--blue-color); }
+    &:nth-child(4) { background-color: var(--danger-color); }
+    &:nth-child(5) { background-color: #8e44ad; }
+    &:nth-child(6) { background-color: #d35400; }
+
+    &:hover { transform: scale(1.15); }
+  }
+
+  &__team-label {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+  }
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 860px) {
+  .about {
+    &__container {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    &__right { position: static; }
+  }
+}

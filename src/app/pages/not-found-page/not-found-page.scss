@@ -1,0 +1,220 @@
+/* =====================================================
+   not-found.scss  — POS 404 page
+   ===================================================== */
+
+.not-found {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Sora', 'Segoe UI', sans-serif;
+  padding: 4rem 5vw;
+
+  /* ── Background grid ────────────────────────── */
+  &__bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+
+  /* ── Glow blobs ─────────────────────────────── */
+  &__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    animation: glowPulse 6s ease-in-out infinite;
+
+    &--1 {
+      width: 400px;
+      height: 400px;
+      background: rgba(22, 160, 133, 0.18);
+      top: -100px;
+      left: -100px;
+    }
+
+    &--2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(41, 128, 185, 0.15);
+      bottom: -80px;
+      right: -80px;
+      animation-delay: 3s;
+    }
+  }
+
+  /* ── Container ──────────────────────────────── */
+  &__container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 640px;
+  }
+
+  /* ── Big 404 ────────────────────────────────── */
+  &__code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    margin-bottom: 1.5rem;
+    animation: fadeDown 0.7s ease both;
+  }
+
+  &__digit {
+    font-size: clamp(6rem, 16vw, 10rem);
+    font-weight: 800;
+    color: var(--light-color);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    opacity: 0.15;
+
+    &--icon {
+      font-size: clamp(4rem, 10vw, 7rem);
+      opacity: 1;
+      filter: drop-shadow(0 0 24px rgba(22,160,133,0.6));
+      animation: spinBounce 3s ease-in-out infinite;
+    }
+  }
+
+  /* ── Text ───────────────────────────────────── */
+  &__title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    color: var(--light-color);
+    letter-spacing: -0.025em;
+    margin-bottom: 1rem;
+    animation: fadeDown 0.7s 0.1s ease both;
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeDown 0.7s 0.2s ease both;
+  }
+
+  /* ── Action buttons ─────────────────────────── */
+  &__links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    animation: fadeDown 0.7s 0.3s ease both;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.25s ease;
+    font-family: inherit;
+
+    &--primary {
+      background: var(--green-color);
+      color: var(--light-color);
+
+      &:hover {
+        background: #1abc9c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(22, 160, 133, 0.4);
+      }
+    }
+
+    &--ghost {
+      background: transparent;
+      color: var(--light-color);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  /* ── Help cards strip ───────────────────────── */
+  &__help {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeDown 0.7s 0.4s ease both;
+  }
+
+  &__help-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-width: 90px;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--green-color);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+  }
+
+  &__help-icon  { font-size: 1.5rem; }
+
+  &__help-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.04em;
+  }
+}
+
+/* ── Animations ───────────────────────────────── */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinBounce {
+  0%, 100% { transform: rotate(-8deg) scale(1);   }
+  50%       { transform: rotate(8deg)  scale(1.1); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 1;   }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 480px) {
+  .not-found {
+    &__links { flex-direction: column; align-items: center; }
+    &__help  { gap: 0.6rem; }
+  }
+}

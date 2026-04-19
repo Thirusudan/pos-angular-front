@@ -1,0 +1,74 @@
+<section class="about" id="about">
+  <div class="about__container">
+
+    <!-- ── Left: Content ────────────────────────── -->
+    <div class="about__left">
+      <div class="about__tag">Who We Are</div>
+
+      <h2 class="about__title">
+        Powering Businesses <br />
+        <span class="about__title--accent">One Sale at a Time</span>
+      </h2>
+
+      <p class="about__lead">
+        Founded in 2016, SwiftPOS was born from a simple frustration — existing
+        point-of-sale systems were too complex, too expensive, or just too old.
+        We built something different.
+      </p>
+
+      <p class="about__body">
+        Our team of 60+ engineers, designers, and retail experts crafted a
+        platform that adapts to your business — whether you run a single café or
+        a chain of 50 stores. We believe every merchant deserves enterprise-grade
+        tools without the enterprise price tag.
+      </p>
+
+      <!-- Value cards -->
+      <div class="about__values">
+        @for (value of values; track value.title) {
+          <div class="about__value-card">
+            <span class="about__value-icon">{{ value.icon }}</span>
+            <div class="about__value-info">
+              <span class="about__value-title">{{ value.title }}</span>
+              <span class="about__value-desc">{{ value.desc }}</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button class="about__cta" (click)="onMeetTeam()">
+        Meet the Team
+        <span class="about__cta-arrow">→</span>
+      </button>
+    </div>
+
+    <!-- ── Right: Visual + Team strip ───────────── -->
+    <div class="about__right">
+
+      <!-- Image placeholder -->
+      <div class="about__img-wrap">
+        <div class="about__img-placeholder">
+          <span class="about__img-icon">🏪</span>
+        </div>
+        <div class="about__experience-badge">
+          <span class="about__exp-number">8+</span>
+          <span class="about__exp-label">Years of Experience</span>
+        </div>
+      </div>
+
+      <!-- Team strip -->
+      <div class="about__team-strip">
+        <div class="about__team-avatars">
+          @for (member of team; track member.name) {
+            <div class="about__avatar" [title]="member.name">
+              {{ member.initials }}
+            </div>
+          }
+        </div>
+        <div class="about__team-label">Meet our 40+ person team across 12 countries</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
